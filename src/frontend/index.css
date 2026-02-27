@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* SheCodes Design Tokens — OKLCH raw L C H values */
+
+    /* Backgrounds */
+    --background: 0.975 0.005 285;
+    --foreground: 0.16 0.02 285;
+
+    /* Card */
+    --card: 1 0 0;
+    --card-foreground: 0.16 0.02 285;
+
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.16 0.02 285;
+
+    /* Primary — Deep violet */
+    --primary: 0.42 0.22 296;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary — Soft rose */
+    --secondary: 0.96 0.015 340;
+    --secondary-foreground: 0.42 0.22 296;
+
+    /* Muted */
+    --muted: 0.96 0.008 285;
+    --muted-foreground: 0.52 0.04 285;
+
+    /* Accent — Pink-rose */
+    --accent: 0.55 0.22 350;
+    --accent-foreground: 0.99 0 0;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Border & Input */
+    --border: 0.90 0.015 285;
+    --input: 0.90 0.015 285;
+    --ring: 0.42 0.22 296;
+
+    /* Chart tokens */
+    --chart-1: 0.42 0.22 296;
+    --chart-2: 0.55 0.22 350;
+    --chart-3: 0.65 0.19 145;
+    --chart-4: 0.72 0.18 60;
+    --chart-5: 0.60 0.20 25;
+
+    /* Sidebar */
+    --sidebar: 0.99 0.005 285;
+    --sidebar-foreground: 0.16 0.02 285;
+    --sidebar-primary: 0.42 0.22 296;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.96 0.015 340;
+    --sidebar-accent-foreground: 0.42 0.22 296;
+    --sidebar-border: 0.90 0.015 285;
+    --sidebar-ring: 0.42 0.22 296;
+
+    /* Custom app tokens */
+    --gradient-start: 0.42 0.22 296;
+    --gradient-mid: 0.38 0.2 310;
+    --gradient-end: 0.55 0.22 350;
+    --hero-overlay: 0.15 0.04 296;
+    --easy-bg: 0.93 0.08 145;
+    --easy-fg: 0.35 0.14 145;
+    --medium-bg: 0.95 0.1 75;
+    --medium-fg: 0.45 0.15 60;
+    --hard-bg: 0.95 0.08 25;
+    --hard-fg: 0.45 0.18 25;
+  }
+
+  .dark {
+    --background: 0.12 0.02 285;
+    --foreground: 0.97 0.005 285;
+    --card: 0.17 0.03 285;
+    --card-foreground: 0.97 0.005 285;
+    --popover: 0.17 0.03 285;
+    --popover-foreground: 0.97 0.005 285;
+    --primary: 0.72 0.18 296;
+    --primary-foreground: 0.12 0.02 285;
+    --secondary: 0.22 0.04 285;
+    --secondary-foreground: 0.97 0.005 285;
+    --muted: 0.22 0.03 285;
+    --muted-foreground: 0.65 0.04 285;
+    --accent: 0.65 0.2 350;
+    --accent-foreground: 0.12 0.02 285;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.30 0.04 285;
+    --input: 0.30 0.04 285;
+    --ring: 0.65 0.18 296;
+    --chart-1: 0.72 0.18 296;
+    --chart-2: 0.65 0.2 350;
+    --chart-3: 0.65 0.19 145;
+    --chart-4: 0.72 0.18 60;
+    --chart-5: 0.60 0.20 25;
+    --sidebar: 0.17 0.03 285;
+    --sidebar-foreground: 0.97 0.005 285;
+    --sidebar-primary: 0.72 0.18 296;
+    --sidebar-primary-foreground: 0.12 0.02 285;
+    --sidebar-accent: 0.22 0.04 285;
+    --sidebar-accent-foreground: 0.97 0.005 285;
+    --sidebar-border: 0.30 0.04 285;
+    --sidebar-ring: 0.65 0.18 296;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: "DM Serif Display", Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, oklch(0.42 0.22 296), oklch(0.55 0.22 350));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg,
+      oklch(0.32 0.22 296) 0%,
+      oklch(0.36 0.22 305) 35%,
+      oklch(0.44 0.24 325) 65%,
+      oklch(0.50 0.24 350) 100%
+    );
+  }
+
+  .card-glow {
+    box-shadow:
+      0 1px 2px oklch(0.42 0.22 296 / 0.06),
+      0 4px 12px oklch(0.42 0.22 296 / 0.08),
+      0 0 0 1px oklch(0.90 0.015 285);
+  }
+
+  .card-glow:hover {
+    box-shadow:
+      0 4px 8px oklch(0.42 0.22 296 / 0.1),
+      0 12px 32px oklch(0.42 0.22 296 / 0.15),
+      0 0 0 1px oklch(0.80 0.025 285);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, oklch(0.42 0.22 296), oklch(0.50 0.24 340));
+    color: oklch(0.99 0 0);
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, oklch(0.38 0.22 296), oklch(0.46 0.24 340));
+    box-shadow: 0 4px 16px oklch(0.42 0.22 296 / 0.35);
+    transform: translateY(-1px);
+  }
+
+  .mesh-bg {
+    background-color: oklch(0.975 0.005 285);
+    background-image:
+      radial-gradient(ellipse at 20% 50%, oklch(0.42 0.22 296 / 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, oklch(0.55 0.22 350 / 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, oklch(0.42 0.22 296 / 0.04) 0%, transparent 50%);
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out both;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation: fadeUp 0.6s ease-out 0.1s both;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation: fadeUp 0.6s ease-out 0.2s both;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation: fadeUp 0.6s ease-out 0.3s both;
+  }
+
+  .animate-fade-up-delay-4 {
+    animation: fadeUp 0.6s ease-out 0.4s both;
+  }
+
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.80 0.025 285);
+  border-radius: 3px;
+}
